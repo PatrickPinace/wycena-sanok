@@ -1,6 +1,7 @@
 export interface PropertyPage {
   slug: string;
   navLabel: string;
+  shortLabel: string;
   h1: string;
   metaTitle: string;
   metaDescription: string;
@@ -20,6 +21,7 @@ export const propertyPages: PropertyPage[] = [
   {
     slug: 'wycena-mieszkania-sanok',
     navLabel: 'Lokale mieszkalne, także w budowie',
+    shortLabel: 'Wycena mieszkania',
     h1: 'Wycena mieszkania Sanok',
     metaTitle: 'Wycena mieszkania Sanok — operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
@@ -54,6 +56,7 @@ export const propertyPages: PropertyPage[] = [
   {
     slug: 'wycena-domu-sanok',
     navLabel: 'Działki zabudowane budynkami mieszkalnymi',
+    shortLabel: 'Wycena domu',
     h1: 'Wycena domu Sanok',
     metaTitle: 'Wycena domu Sanok — operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
@@ -88,6 +91,7 @@ export const propertyPages: PropertyPage[] = [
   {
     slug: 'wycena-dzialki-sanok',
     navLabel: 'Działki niezabudowane',
+    shortLabel: 'Wycena działki',
     h1: 'Wycena działki Sanok',
     metaTitle: 'Wycena działki Sanok — operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
@@ -122,6 +126,7 @@ export const propertyPages: PropertyPage[] = [
   {
     slug: 'wycena-lokalu-uzytkowego-sanok',
     navLabel: 'Lokale użytkowe i nieruchomości komercyjne',
+    shortLabel: 'Wycena lokalu użytkowego',
     h1: 'Wycena lokalu użytkowego Sanok',
     metaTitle: 'Wycena lokalu użytkowego i nieruchomości komercyjnej Sanok | Zbigniew Gilarski',
     metaDescription:

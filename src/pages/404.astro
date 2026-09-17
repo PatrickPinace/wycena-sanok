@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+import { business } from '../data/business';
+---
+
+<BaseLayout
+  title={`Nie znaleziono strony — ${business.name}`}
+  description="Strona, której szukasz, nie istnieje lub została przeniesiona."
+  path="/404/"
+  noindex
+>
+  <Header isHomePage={false} />
+  <main>
+    <section class="not-found">
+      <p class="eyebrow">Błąd 404</p>
+      <h1>Nie znaleziono strony</h1>
+      <p class="lead">
+        Strona, której szukasz, nie istnieje lub została przeniesiona. Sprawdź adres albo skorzystaj z
+        poniższych linków.
+      </p>
+      <div class="cta-row">
+        <a href={business.phoneHref} class="cta-primary">Zadzwoń: {business.phone}</a>
+        <a href="/" class="cta-secondary">Strona główna</a>
+      </div>
+      <nav class="quick-links" aria-label="Szybkie linki">
+        <a href="/#oferta">Oferta</a>
+        <a href="/#o-firmie">O firmie</a>
+        <a href="/#cennik">Koszt wyceny</a>
+        <a href="/#kontakt">Kontakt</a>
+      </nav>
+    </section>
+  </main>
+  <Footer />
+  <MobileCallBar />
+</BaseLayout>
+
+<style>
+  .not-found {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 120px 32px 140px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 22px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  .lead {
+    margin: 22px auto 0;
+    max-width: 46ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 40px;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 28px;
+    border-radius: 6px;
+    min-height: 52px;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .cta-primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+  }
+
+  .cta-primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .cta-secondary {
+    border: 1px solid #c9c3b7;
+  }
+
+  .cta-secondary:hover {
+    border-color: var(--color-primary);
+    background: #f1eee8;
+    transform: translateY(-1px);
+  }
+
+  .quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 28px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border-soft);
+  }
+
+  .quick-links a {
+    font-size: 15px;
+    color: var(--color-text-muted);
+  }
+
+  .quick-links a:hover {
+    color: var(--color-primary);
+  }
+</style>

@@ -1,0 +1,6 @@
+# Wymuszenie kanonicznej wersji domeny (bez www)
+[[redirects]]
+  from = "https://www.wycena-sanok.pl/*"
+  to = "https://wycena-sanok.pl/:splat"
+  status = 301
+  force = true

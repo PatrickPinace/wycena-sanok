@@ -1,0 +1,87 @@
+---
+import { propertyPages } from '../data/propertyPages';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const related = propertyPages.filter((page) => page.slug !== currentSlug);
+---
+
+<section class="related">
+  <div class="related-inner">
+    <p class="label">Zobacz także</p>
+    <ul class="links">
+      {
+        related.map((page) => (
+          <li>
+            <a href={`/${page.slug}/`}>
+              {page.shortLabel}
+              <span class="arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .related {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  .label {
+    margin: 0 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+  }
+
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    transition: color 0.15s ease;
+  }
+
+  .links a:hover {
+    color: var(--color-primary);
+  }
+
+  .arrow {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .links a:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>

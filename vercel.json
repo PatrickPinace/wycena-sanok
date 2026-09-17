@@ -1,5 +1,12 @@
 {
+  "trailingSlash": true,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.wycena-sanok.pl" }],
+      "destination": "https://wycena-sanok.pl/:path*",
+      "permanent": true
+    },
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/wycena-nieruchomosci-oferta.html", "destination": "/#oferta", "permanent": true },
     { "source": "/wycena-nieruchomosci-oFirmie.html", "destination": "/#o-firmie", "permanent": true },

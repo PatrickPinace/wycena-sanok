@@ -9,16 +9,42 @@ import { business } from '../data/business';
       <span class="brand-role">{business.title} · {business.city}</span>
     </a>
     <nav aria-label="Główne">
-      <a href="#oferta">Oferta</a>
-      <a href="#proces">Proces</a>
-      <a href="#o-firmie">O firmie</a>
-      <a href="#cennik">Cennik</a>
-      <a href="#pytania">Pytania</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#oferta" data-nav-link>Oferta</a>
+      <a href="#proces" data-nav-link>Proces</a>
+      <a href="#o-firmie" data-nav-link>O firmie</a>
+      <a href="#cennik" data-nav-link>Koszt wyceny</a>
+      <a href="#pytania" data-nav-link>Pytania</a>
+      <a href="#kontakt" data-nav-link>Kontakt</a>
       <a id="nav-telefon" href={business.phoneHref} class="phone-btn">{business.phone}</a>
     </nav>
   </div>
 </header>
+
+<script>
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+  const sections = Array.from(navLinks)
+    .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+    .filter((el): el is HTMLElement => el !== null);
+
+  const setActive = (id: string) => {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting);
+      if (visible.length > 0) {
+        const topmost = visible.reduce((a, b) => (a.boundingClientRect.top < b.boundingClientRect.top ? a : b));
+        setActive(topmost.target.id);
+      }
+    },
+    { rootMargin: '-40% 0px -55% 0px', threshold: 0 },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
 
 <style>
   .site-header {
@@ -93,11 +119,13 @@ import { business } from '../data/business';
     transition: right 0.2s ease;
   }
 
-  nav > a:not(.phone-btn):hover {
+  nav > a:not(.phone-btn):hover,
+  nav > a:not(.phone-btn).active {
     color: var(--color-primary);
   }
 
-  nav > a:not(.phone-btn):hover::after {
+  nav > a:not(.phone-btn):hover::after,
+  nav > a:not(.phone-btn).active::after {
     right: 0;
   }
 

@@ -278,4 +278,16 @@ const {
     color: var(--color-primary);
     border-color: var(--color-primary);
   }
+
+  @media (max-width: 640px) {
+    .cta-row {
+      justify-content: center;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      justify-content: center;
+      width: min(100%, 320px);
+    }
+  }
 </style>

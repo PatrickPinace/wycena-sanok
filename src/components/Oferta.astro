@@ -85,15 +85,10 @@ const items = [
   }
 
   .arrow {
-    opacity: 0;
-    transform: translateX(-4px);
-    transition:
-      opacity 0.15s ease,
-      transform 0.15s ease;
+    transition: transform 0.15s ease;
   }
 
   .items a:hover .arrow {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateX(3px);
   }
 </style>

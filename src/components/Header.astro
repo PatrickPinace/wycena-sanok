@@ -83,6 +83,15 @@ const navItems = [
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') closeMenu();
     });
+
+    document.addEventListener('click', (event) => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if (!isOpen) return;
+      const target = event.target as Node;
+      if (!nav.contains(target) && !toggle.contains(target)) {
+        closeMenu();
+      }
+    });
   }
 </script>
 

@@ -1,5 +1,6 @@
 ---
 import SectionHeading from './SectionHeading.astro';
+import { withBase } from '../lib/url';
 
 const items = [
   { label: 'Działki niezabudowane', href: '/wycena-dzialki-sanok/' },
@@ -23,7 +24,7 @@ const items = [
       {
         items.map((item) => (
           <li>
-            <a href={item.href}>
+            <a href={withBase(item.href)}>
               {item.label}
               <span class="arrow" aria-hidden="true">
                 →

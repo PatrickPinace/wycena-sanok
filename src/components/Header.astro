@@ -1,5 +1,6 @@
 ---
 import { business } from '../data/business';
+import { withBase } from '../lib/url';
 
 interface Props {
   isHomePage?: boolean;
@@ -7,21 +8,31 @@ interface Props {
 
 const { isHomePage = true } = Astro.props;
 const prefix = isHomePage ? '' : '/';
+
+const navItems = [
+  { id: 'oferta', label: 'Oferta' },
+  { id: 'proces', label: 'Proces' },
+  { id: 'o-firmie', label: 'O firmie' },
+  { id: 'cennik', label: 'Koszt wyceny' },
+  { id: 'pytania', label: 'Pytania' },
+  { id: 'kontakt', label: 'Kontakt' },
+];
 ---
 
 <header class="site-header">
   <div class="inner">
-    <a href="/" class="brand">
+    <a href={withBase('/')} class="brand">
       <span class="brand-name">{business.name}</span>
       <span class="brand-role">{business.title} · {business.city}</span>
     </a>
     <nav aria-label="Główne">
-      <a href={`${prefix}#oferta`} data-nav-link>Oferta</a>
-      <a href={`${prefix}#proces`} data-nav-link>Proces</a>
-      <a href={`${prefix}#o-firmie`} data-nav-link>O firmie</a>
-      <a href={`${prefix}#cennik`} data-nav-link>Koszt wyceny</a>
-      <a href={`${prefix}#pytania`} data-nav-link>Pytania</a>
-      <a href={`${prefix}#kontakt`} data-nav-link>Kontakt</a>
+      {
+        navItems.map((item) => (
+          <a href={withBase(`${prefix}#${item.id}`)} data-nav-link data-target-id={item.id}>
+            {item.label}
+          </a>
+        ))
+      }
       <a id="nav-telefon" href={business.phoneHref} class="phone-btn">{business.phone}</a>
     </nav>
   </div>
@@ -32,12 +43,12 @@ const prefix = isHomePage ? '' : '/';
     <script>
       const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
       const sections = Array.from(navLinks)
-        .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+        .map((link) => document.getElementById(link.dataset.targetId ?? ''))
         .filter((el): el is HTMLElement => el !== null);
 
       const setActive = (id: string) => {
         navLinks.forEach((link) => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          link.classList.toggle('active', link.dataset.targetId === id);
         });
       };
 

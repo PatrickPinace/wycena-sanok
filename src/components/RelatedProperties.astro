@@ -1,5 +1,6 @@
 ---
 import { propertyPages } from '../data/propertyPages';
+import { withBase } from '../lib/url';
 
 interface Props {
   currentSlug: string;
@@ -16,7 +17,7 @@ const related = propertyPages.filter((page) => page.slug !== currentSlug);
       {
         related.map((page) => (
           <li>
-            <a href={`/${page.slug}/`}>
+            <a href={withBase(`/${page.slug}/`)}>
               {page.shortLabel}
               <span class="arrow" aria-hidden="true">
                 →

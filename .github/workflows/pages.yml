@@ -1,0 +1,59 @@
+name: Podgląd na GitHub Pages
+
+# Tymczasowy adres do oglądania strony, zanim ruszy docelowy hosting.
+# Nie wpływa na sitemap/canonical - te zawsze wskazują na wycena-sanok.pl.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Skonfiguruj Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Zainstaluj Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Zainstaluj zależności
+        run: npm ci
+
+      - name: Zbuduj stronę
+        run: npm run build
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Wyślij artefakt
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Opublikuj na Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

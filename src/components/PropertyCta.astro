@@ -1,5 +1,6 @@
 ---
 import { business } from '../data/business';
+import { withBase } from '../lib/url';
 
 interface Props {
   ctaText: string;
@@ -18,7 +19,7 @@ const { ctaText } = Astro.props;
     </p>
     <div class="cta-row">
       <a href={business.phoneHref} class="cta-primary">Zadzwoń: {business.phone}</a>
-      <a href="/#kontakt" class="cta-secondary">Pełne dane kontaktowe</a>
+      <a href={withBase('/#kontakt')} class="cta-secondary">Pełne dane kontaktowe</a>
     </div>
   </div>
 </section>

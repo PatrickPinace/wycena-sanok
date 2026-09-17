@@ -60,7 +60,7 @@ export const propertyPages: PropertyPage[] = [
     h1: 'Wycena domu Sanok',
     metaTitle: 'Wycena domu Sanok — operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
-      'Wycena domu jednorodzinnego w Sanoku i okolicy — operat szacunkowy do kredytu, sprzedaży lub ubezpieczenia. Rzeczoznawca majątkowy, uprawnienia nr 1376.',
+      'Potrzebujesz operatu szacunkowego domu w Sanoku? Rzeczoznawca majątkowy z uprawnieniami nr 1376 — wyceny do kredytu, sprzedaży i ubezpieczenia.',
     eyebrow: 'Domy jednorodzinne · działki zabudowane',
     lead: 'Wyceniam domy jednorodzinne oraz działki zabudowane budynkami mieszkalnymi na terenie Sanoka i powiatu sanockiego.',
     ctaText: 'wyceny domu',
@@ -76,7 +76,7 @@ export const propertyPages: PropertyPage[] = [
     purposesTitle: 'Do czego najczęściej służy wycena domu',
     purposes: [
       'Zabezpieczenie kredytu hipotecznego',
-      'Sprzedaż lub zakup na podstawie realnej wartości rynkowej',
+      'Ustalenie ceny przy sprzedaży lub zakupie',
       'Ustalenie podatku od spadku lub darowizny',
       'Cele ubezpieczeniowe',
     ],
@@ -95,7 +95,7 @@ export const propertyPages: PropertyPage[] = [
     h1: 'Wycena działki Sanok',
     metaTitle: 'Wycena działki Sanok — operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
-      'Wycena działki niezabudowanej w Sanoku i okolicy — operat szacunkowy do sprzedaży, kredytu lub opłaty planistycznej. Rzeczoznawca majątkowy, uprawnienia nr 1376.',
+      'Rzeczoznawca majątkowy (uprawnienia nr 1376) wycenia działki niezabudowane w Sanoku — operat do sprzedaży, kredytu lub opłaty planistycznej.',
     eyebrow: 'Działki niezabudowane · budowlane i rolne',
     lead: 'Wyceniam działki niezabudowane na terenie Sanoka i powiatu sanockiego — budowlane, rolne oraz z potencjałem inwestycyjnym.',
     ctaText: 'wyceny działki',
@@ -110,7 +110,7 @@ export const propertyPages: PropertyPage[] = [
     ],
     purposesTitle: 'Do czego najczęściej służy wycena działki',
     purposes: [
-      'Sprzedaż lub zakup na podstawie realnej wartości rynkowej',
+      'Określenie wartości rynkowej przed sprzedażą lub zakupem',
       'Zabezpieczenie kredytu bankowego',
       'Ustalenie opłaty adiacenckiej lub planistycznej',
       'Podział majątku lub zniesienie współwłasności',
@@ -130,7 +130,7 @@ export const propertyPages: PropertyPage[] = [
     h1: 'Wycena lokalu użytkowego Sanok',
     metaTitle: 'Wycena lokalu użytkowego i nieruchomości komercyjnej Sanok | Zbigniew Gilarski',
     metaDescription:
-      'Wycena lokalu użytkowego i nieruchomości komercyjnej w Sanoku — operat szacunkowy do kredytu, sprzedaży lub najmu. Rzeczoznawca majątkowy, uprawnienia nr 1376.',
+      'Operaty szacunkowe lokali użytkowych i nieruchomości komercyjnych w Sanoku. Zbigniew Gilarski, rzeczoznawca majątkowy, uprawnienia nr 1376.',
     eyebrow: 'Lokale użytkowe · nieruchomości komercyjne · kamienice',
     lead: 'Wyceniam lokale użytkowe, nieruchomości komercyjne, garaże i kamienice na terenie Sanoka i powiatu sanockiego.',
     ctaText: 'wyceny lokalu użytkowego',
@@ -146,7 +146,7 @@ export const propertyPages: PropertyPage[] = [
     purposesTitle: 'Do czego najczęściej służy wycena lokalu użytkowego',
     purposes: [
       'Zabezpieczenie kredytu bankowego',
-      'Sprzedaż lub zakup na podstawie realnej wartości rynkowej',
+      'Ustalenie wartości przy sprzedaży lub zakupie',
       'Wniesienie aportu lub sprawozdania finansowe',
       'Negocjacje najmu lub sprzedaży',
     ],

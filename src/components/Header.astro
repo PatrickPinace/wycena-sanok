@@ -72,15 +72,31 @@ import { business } from '../data/business';
   }
 
   nav > a {
+    position: relative;
     font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
     color: #3c4248;
     padding: 6px 0;
-    border-bottom: 1px solid transparent;
   }
 
-  nav > a:hover {
+  nav > a:not(.phone-btn)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: var(--color-primary);
+    transition: right 0.2s ease;
+  }
+
+  nav > a:not(.phone-btn):hover {
     color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
+  }
+
+  nav > a:not(.phone-btn):hover::after {
+    right: 0;
   }
 
   .phone-btn {
@@ -89,7 +105,8 @@ import { business } from '../data/business';
     background: var(--color-primary);
     padding: 11px 20px;
     border-radius: 6px;
-    border-bottom: none !important;
+    font-variant-numeric: lining-nums;
+    transition: background-color 0.15s ease;
   }
 
   .phone-btn:hover {

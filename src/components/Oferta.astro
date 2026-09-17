@@ -16,7 +16,6 @@ const items = [
 <section id="oferta" class="oferta">
   <div class="oferta-grid">
     <SectionHeading
-      number="01"
       title="Jakie nieruchomości wyceniam"
       description="Szacuję wartość nieruchomości wszystkich podstawowych typów występujących na rynku sanockim."
     />
@@ -55,6 +54,15 @@ const items = [
     padding: 18px 0;
     border-bottom: 1px solid var(--color-border-soft);
     font-size: 17px;
+    letter-spacing: -0.005em;
     color: var(--color-ink-soft);
+    transition:
+      color 0.15s ease,
+      padding-left 0.15s ease;
+  }
+
+  .items li:hover {
+    color: var(--color-primary);
+    padding-left: 6px;
   }
 </style>

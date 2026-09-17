@@ -1,15 +1,14 @@
 ---
 interface Props {
-  number: string;
   title: string;
   description?: string;
 }
 
-const { number, title, description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <div class="section-heading">
-  <p class="number">{number}</p>
+  <span class="rule" aria-hidden="true"></span>
   <h2>{title}</h2>
   {description && <p class="description">{description}</p>}
 </div>
@@ -20,11 +19,12 @@ const { number, title, description } = Astro.props;
     min-width: 260px;
   }
 
-  .number {
-    margin: 0 0 18px;
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    color: var(--color-text-muted);
+  .rule {
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-bottom: 22px;
+    background: var(--color-primary);
   }
 
   h2 {
@@ -33,7 +33,7 @@ const { number, title, description } = Astro.props;
     font-weight: 500;
     font-size: clamp(2.1rem, 3.7vw, 3.1rem);
     line-height: 1.08;
-    letter-spacing: -0.018em;
+    letter-spacing: -0.02em;
     max-width: 16ch;
   }
 

@@ -40,7 +40,7 @@ const faqJsonLd = {
 
 <section id="pytania" class="pytania">
   <div class="grid">
-    <SectionHeading number="07" title="Najczęstsze pytania" />
+    <SectionHeading title="Najczęstsze pytania" />
     <div class="lista">
       {
         faq.map((item) => (
@@ -80,6 +80,11 @@ const faqJsonLd = {
   .item {
     padding: 28px 0;
     border-bottom: 1px solid var(--color-border-soft);
+    transition: padding-left 0.2s ease;
+  }
+
+  .item:hover {
+    padding-left: 8px;
   }
 
   .item h3 {
@@ -87,6 +92,7 @@ const faqJsonLd = {
     font-family: var(--font-serif);
     font-size: 22px;
     font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--color-ink);
   }
 

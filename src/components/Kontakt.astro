@@ -6,7 +6,7 @@ import { business } from '../data/business';
   <div class="inner">
     <div class="grid">
       <div class="left">
-        <p class="number">08</p>
+        <span class="rule" aria-hidden="true"></span>
         <h2>Kontakt</h2>
         <p class="lead">
           Najszybciej telefonicznie. Proszę przygotować rodzaj nieruchomości, adres i cel wyceny — na tej
@@ -69,11 +69,12 @@ import { business } from '../data/business';
     min-width: 260px;
   }
 
-  .number {
-    margin: 0 0 18px;
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    color: #8fa6bc;
+  .rule {
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-bottom: 22px;
+    background: #5c7894;
   }
 
   h2 {
@@ -82,7 +83,7 @@ import { business } from '../data/business';
     font-weight: 500;
     font-size: clamp(2.1rem, 3.8vw, 3.2rem);
     line-height: 1.08;
-    letter-spacing: -0.018em;
+    letter-spacing: -0.02em;
     color: #fff;
   }
 
@@ -102,13 +103,18 @@ import { business } from '../data/business';
     font-family: var(--font-serif);
     font-size: 28px;
     font-weight: 600;
+    font-variant-numeric: lining-nums;
     padding: 16px 32px;
     border-radius: 6px;
     min-height: 56px;
+    transition:
+      background-color 0.15s ease,
+      transform 0.15s ease;
   }
 
   .phone-cta:hover {
     background: #fff;
+    transform: translateY(-1px);
   }
 
   address {
@@ -194,6 +200,10 @@ import { business } from '../data/business';
     padding: 14px 24px;
     border-radius: 6px;
     min-height: 48px;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      transform 0.15s ease;
   }
 
   .btn-light {
@@ -203,6 +213,7 @@ import { business } from '../data/business';
 
   .btn-light:hover {
     background: #fff;
+    transform: translateY(-1px);
   }
 
   .btn-outline {
@@ -213,6 +224,7 @@ import { business } from '../data/business';
   .btn-outline:hover {
     border-color: #fff;
     background: #1a3a5c;
+    transform: translateY(-1px);
   }
 
   .nip {

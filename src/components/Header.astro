@@ -92,6 +92,15 @@ const navItems = [
         closeMenu();
       }
     });
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        if (isOpen) closeMenu();
+      },
+      { passive: true },
+    );
   }
 </script>
 

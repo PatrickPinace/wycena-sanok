@@ -5,7 +5,9 @@ import { business } from '../data/business';
 <footer class="site-footer">
   <div class="inner">
     <p>Wycena nieruchomości Sanok · {business.name} · NIP {business.nip}</p>
-    <p>{business.street}, {business.postalCode} {business.city} · tel. {business.phone}</p>
+    <p>
+      <a href={business.mapsDirectionsUrl} target="_blank" rel="noopener">{business.street}, {business.postalCode} {business.city}</a> · tel. <a href={business.phoneHref}>{business.phone}</a>
+    </p>
   </div>
 </footer>
 
@@ -29,5 +31,18 @@ import { business } from '../data/business';
 
   .inner p {
     margin: 0;
+  }
+
+  .inner a {
+    color: #8fa6bc;
+    border-bottom: 1px solid #45658a;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .inner a:hover {
+    color: #fff;
+    border-color: #fff;
   }
 </style>

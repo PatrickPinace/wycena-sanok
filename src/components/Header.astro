@@ -25,7 +25,7 @@ const navItems = [
       <span class="brand-name">{business.name}</span>
       <span class="brand-role">{business.title} · {business.city}</span>
     </a>
-    <nav aria-label="Główne">
+    <nav aria-label="Główne" id="main-nav">
       {
         navItems.map((item) => (
           <a href={withBase(`${prefix}#${item.id}`)} data-nav-link data-target-id={item.id}>
@@ -35,8 +35,56 @@ const navItems = [
       }
       <a id="nav-telefon" href={business.phoneHref} class="phone-btn">{business.phone}</a>
     </nav>
+    <button
+      type="button"
+      id="menu-toggle"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Otwórz menu"
+    >
+      <svg class="icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </svg>
+      <svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </svg>
+    </button>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('main-nav');
+
+  if (toggle && nav) {
+    const closeMenu = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Otwórz menu');
+      nav.classList.remove('is-open');
+    };
+
+    const openMenu = () => {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Zamknij menu');
+      nav.classList.add('is-open');
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+</script>
 
 {
   isHomePage && (
@@ -167,13 +215,83 @@ const navItems = [
     background: var(--color-primary-hover);
   }
 
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .menu-toggle .icon-close {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded='true'] .icon-open {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded='true'] .icon-close {
+    display: block;
+  }
+
   @media (max-width: 720px) {
+    .inner {
+      min-height: 72px;
+      flex-wrap: nowrap;
+    }
+
+    .brand {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .brand-role {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex: 0 0 auto;
+    }
+
     #nav-telefon {
       display: none;
     }
 
-    nav a:not(.phone-btn) {
-      padding: 12px 0;
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px 32px 20px;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    nav.is-open {
+      display: flex;
+    }
+
+    nav > a:not(.phone-btn) {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    nav > a:not(.phone-btn)::after {
+      display: none;
     }
   }
 </style>

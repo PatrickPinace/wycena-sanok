@@ -34,7 +34,11 @@ import { business } from '../data/business';
         </div>
         <div>
           <dt>Biuro</dt>
-          <dd>{business.street}, {business.postalCode} {business.city}</dd>
+          <dd>
+            <a href={business.mapsDirectionsUrl} target="_blank" rel="noopener">
+              {business.street}, {business.postalCode} {business.city}
+            </a>
+          </dd>
         </div>
         <div>
           <dt>E-mail</dt>
@@ -244,5 +248,15 @@ import { business } from '../data/business';
   .hero-card-details dd {
     margin: 0;
     color: var(--color-ink-soft);
+  }
+
+  .hero-card-details dd a {
+    color: inherit;
+    border-bottom: 1px solid #c2cbd6;
+  }
+
+  .hero-card-details dd a:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
   }
 </style>

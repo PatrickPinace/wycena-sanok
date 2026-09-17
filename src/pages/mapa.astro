@@ -1,5 +1,8 @@
 ---
 import { business } from '../data/business';
+
+const query = encodeURIComponent(`${business.street}, ${business.postalCode} ${business.city}`);
+const mapSrc = `https://maps.google.com/maps?q=${query}&z=16&output=embed`;
 ---
 
 <!doctype html>
@@ -9,33 +12,14 @@ import { business } from '../data/business';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mapa — {business.street}, {business.city}</title>
     <meta name="robots" content="noindex" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
-      crossorigin="anonymous"
-    />
-    <script
-      is:inline
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
-      crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="map"></div>
-    <script is:inline define:vars={{ street: business.street, city: business.city }}>
-      var pos = [49.563246, 22.194121];
-      var map = L.map('map', { scrollWheelZoom: false }).setView(pos, 16);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap contributors',
-      }).addTo(map);
-      L.marker(pos, {
-        icon: L.divIcon({ className: '', html: '<div class="pin"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }),
-      })
-        .addTo(map)
-        .bindPopup('<strong>Zbigniew Gilarski</strong><br>' + street + ', ' + city);
-    </script>
+    <iframe
+      title={`Mapa — ${business.street}, ${business.city}`}
+      src={mapSrc}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </body>
 </html>
 
@@ -44,35 +28,12 @@ import { business } from '../data/business';
   body {
     margin: 0;
     height: 100%;
-    background: #f3f1ec;
   }
 
-  #map {
-    height: 100%;
+  iframe {
+    display: block;
     width: 100%;
-  }
-
-  .leaflet-container {
-    font-family: Archivo, system-ui, sans-serif;
-    background: #f3f1ec;
-  }
-
-  .pin {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #16324f;
-    border: 3px solid #fbfaf8;
-    box-shadow: 0 0 0 1px rgba(22, 50, 79, 0.35);
-  }
-
-  .leaflet-popup-content {
-    font-size: 13px;
-    line-height: 1.5;
-    color: #1b1d1f;
-  }
-
-  .leaflet-control-attribution {
-    font-size: 10px;
+    height: 100%;
+    border: 0;
   }
 </style>

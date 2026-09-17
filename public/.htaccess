@@ -1,0 +1,8 @@
+# Przekierowania ze starej struktury strony (Apache)
+RewriteEngine On
+
+RewriteRule ^index\.html$ /? [R=301,L]
+RewriteRule ^wycena-nieruchomosci-oferta\.html$ /#oferta [R=301,L,NE]
+RewriteRule ^wycena-nieruchomosci-o[Ff]irmie\.html$ /#o-firmie [R=301,L,NE]
+RewriteRule ^wycena-nieruchomosci-cennik\.html$ /#cennik [R=301,L,NE]
+RewriteRule ^wycena-nieruchomosci-kontakt\.html$ /#kontakt [R=301,L,NE]

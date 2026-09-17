@@ -1,0 +1,8 @@
+# Przekierowania ze starej struktury strony (Netlify)
+# Format: stary-adres  nowy-adres  kod-statusu
+
+/index.html                              /                    301
+/wycena-nieruchomosci-oferta.html        /#oferta             301
+/wycena-nieruchomosci-oFirmie.html       /#o-firmie           301
+/wycena-nieruchomosci-cennik.html        /#cennik             301
+/wycena-nieruchomosci-kontakt.html       /#kontakt            301

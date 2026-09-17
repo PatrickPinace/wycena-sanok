@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/wycena-nieruchomosci-oferta.html", "destination": "/#oferta", "permanent": true },
+    { "source": "/wycena-nieruchomosci-oFirmie.html", "destination": "/#o-firmie", "permanent": true },
+    { "source": "/wycena-nieruchomosci-ofirmie.html", "destination": "/#o-firmie", "permanent": true },
+    { "source": "/wycena-nieruchomosci-cennik.html", "destination": "/#cennik", "permanent": true },
+    { "source": "/wycena-nieruchomosci-kontakt.html", "destination": "/#kontakt", "permanent": true }
+  ]
+}

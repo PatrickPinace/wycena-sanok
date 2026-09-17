@@ -1,0 +1,60 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const items = [
+  'działki niezabudowane',
+  'działki zabudowane budynkami mieszkalnymi',
+  'lokale mieszkalne, także w budowie',
+  'spółdzielcze własnościowe prawo do lokalu',
+  'lokale użytkowe',
+  'nieruchomości komercyjne',
+  'garaże',
+  'kamienice',
+];
+---
+
+<section id="oferta" class="oferta">
+  <div class="oferta-grid">
+    <SectionHeading
+      number="01"
+      title="Jakie nieruchomości wyceniam"
+      description="Szacuję wartość nieruchomości wszystkich podstawowych typów występujących na rynku sanockim."
+    />
+    <ul class="items">
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .oferta {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .oferta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .items {
+    flex: 1 1 420px;
+    min-width: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0 40px;
+  }
+
+  .items li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+    font-size: 17px;
+    color: var(--color-ink-soft);
+  }
+</style>

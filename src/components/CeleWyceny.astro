@@ -1,0 +1,81 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const cele = [
+  { title: 'Kupno i sprzedaż', text: 'Określenie ceny transakcyjnej na podstawie rzeczywistych danych rynkowych.' },
+  { title: 'Kredyt hipoteczny', text: 'Zabezpieczenie kredytu bankowego — operat przyjmowany przez banki.' },
+  { title: 'Spadek i darowizna', text: 'Ustalenie podatku od spadków i darowizn.' },
+  { title: 'Podział majątku', text: 'Zniesienie współwłasności, podział majątku, sprawy sądowe.' },
+  { title: 'Użytkowanie wieczyste', text: 'Aktualizacja opłat rocznych za użytkowanie wieczyste.' },
+  { title: 'Opłaty adiacenckie', text: 'Ustalenie opłaty adiacenckiej i planistycznej.' },
+  { title: 'Ubezpieczenie', text: 'Określenie wartości dla celów ubezpieczeniowych.' },
+  { title: 'Inne cele', text: 'Wniesienie aportu, sprawozdania finansowe, negocjacje, postępowania administracyjne.' },
+];
+---
+
+<section class="cele-band">
+  <div class="cele">
+    <div class="cele-grid">
+      <SectionHeading
+        number="02"
+        title="Do czego potrzebna jest wycena nieruchomości"
+        description="Operat szacunkowy zawsze ma określony cel. Ustalam go na samym początku — od niego zależy zakres opracowania."
+      />
+      <div class="cele-list">
+        {
+          cele.map((cel) => (
+            <div class="cel">
+              <h3>{cel.title}</h3>
+              <p>{cel.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cele-band {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cele {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .cele-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .cele-list {
+    flex: 1 1 420px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px 40px;
+  }
+
+  .cel h3 {
+    margin: 0 0 6px;
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .cel p {
+    margin: 0;
+    max-width: 42ch;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+</style>

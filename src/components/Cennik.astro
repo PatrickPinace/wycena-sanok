@@ -1,0 +1,86 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const czynniki = [
+  'rodzaj, charakter i wielkość nieruchomości',
+  'nakład pracy niezbędny do przeprowadzenia wyceny',
+  'termin i warunki wykonania czynności szacunkowych',
+  'koszty ponoszone przez rzeczoznawcę: opłaty urzędowe, dojazd',
+];
+---
+
+<section id="cennik" class="cennik-band">
+  <div class="cennik">
+    <div class="grid">
+      <SectionHeading number="06" title="Ile kosztuje wycena" />
+      <div class="content">
+        <p class="intro">Koszt wyceny ustalam indywidualnie z każdym Klientem. Zależy od czterech czynników:</p>
+        <div class="czynniki">
+          {czynniki.map((czynnik) => <p>{czynnik}</p>)}
+        </div>
+        <p class="note">
+          W celu zapoznania się z konkretnymi kosztami wyceny danej nieruchomości proszę o kontakt telefoniczny
+          bądź mailowy. Cenę i termin podaję z góry, przed rozpoczęciem pracy.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cennik-band {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cennik {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .content {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+
+  .intro {
+    margin: 0 0 36px;
+    max-width: 42ch;
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+    line-height: 1.45;
+    color: var(--color-ink);
+  }
+
+  .czynniki {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0 40px;
+  }
+
+  .czynniki p {
+    margin: 0;
+    padding: 20px 0;
+    border-top: 1px solid #e0dbd1;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+  }
+
+  .note {
+    margin: 36px 0 0;
+    max-width: 62ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+</style>

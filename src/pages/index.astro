@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Oferta from '../components/Oferta.astro';
+import CeleWyceny from '../components/CeleWyceny.astro';
+import Proces from '../components/Proces.astro';
+import Dokumenty from '../components/Dokumenty.astro';
+import PhotoBand from '../components/PhotoBand.astro';
+import OFirmie from '../components/OFirmie.astro';
+import Cennik from '../components/Cennik.astro';
+import Faq from '../components/Faq.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+---
+
+<BaseLayout
+  title="Wycena Nieruchomości Sanok — Zbigniew Gilarski, rzeczoznawca majątkowy"
+  description="Rzeczoznawca majątkowy w Sanoku od 1995 roku. Wyceny mieszkań, domów, działek i nieruchomości komercyjnych na terenie Podkarpacia. Operaty dla banków, sądów i urzędów."
+  path="/"
+>
+  <Header />
+  <main>
+    <Hero />
+    <Stats />
+    <Oferta />
+    <CeleWyceny />
+    <Proces />
+    <Dokumenty />
+    <PhotoBand />
+    <OFirmie />
+    <Cennik />
+    <Faq />
+    <Kontakt />
+  </main>
+  <Footer />
+  <MobileCallBar />
+</BaseLayout>

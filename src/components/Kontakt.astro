@@ -1,0 +1,226 @@
+---
+import { business } from '../data/business';
+---
+
+<section id="kontakt" class="kontakt">
+  <div class="inner">
+    <div class="grid">
+      <div class="left">
+        <p class="number">08</p>
+        <h2>Kontakt</h2>
+        <p class="lead">
+          Najszybciej telefonicznie. Proszę przygotować rodzaj nieruchomości, adres i cel wyceny — na tej
+          podstawie od razu podam cenę i termin.
+        </p>
+        <a href={business.phoneHref} class="phone-cta">{business.phone}</a>
+        <address>
+          <div class="row">
+            <span class="label">Rzeczoznawca majątkowy</span>
+            <span class="value">mgr inż. {business.name}, upr. nr {business.licenseNumber}</span>
+          </div>
+          <div class="row">
+            <span class="label">Telefon dodatkowy · e-mail</span>
+            <span class="value">
+              {business.phoneSecondary} · <a href={`mailto:${business.email}`}>{business.email}</a>
+            </span>
+          </div>
+          <div class="row">
+            <span class="label">Godziny pracy</span>
+            <span class="value">poniedziałek – sobota, {business.hours.replace('pon.–sob. ', '')}</span>
+          </div>
+        </address>
+      </div>
+
+      <div class="office-card">
+        <p class="office-label">Biuro</p>
+        <p class="office-address">{business.street}<br />{business.postalCode} {business.city}</p>
+        <p class="office-note">Spotkania po wcześniejszym telefonicznym umówieniu terminu.</p>
+        <div class="office-actions">
+          <a href={business.mapsDirectionsUrl} target="_blank" rel="noopener" class="btn-light">Wyznacz trasę</a>
+          <a href="/mapa" target="_blank" rel="noopener" class="btn-outline">Pokaż na mapie</a>
+        </div>
+        <p class="nip">NIP {business.nip}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .kontakt {
+    background: var(--color-primary);
+    color: #f2f4f7;
+  }
+
+  .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    align-items: flex-start;
+  }
+
+  .left {
+    flex: 1 1 400px;
+    min-width: 260px;
+  }
+
+  .number {
+    margin: 0 0 18px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: #8fa6bc;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    color: #fff;
+  }
+
+  .lead {
+    margin: 22px 0 40px;
+    max-width: 46ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #c9d6e2;
+  }
+
+  .phone-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-bg);
+    color: var(--color-primary) !important;
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 6px;
+    min-height: 56px;
+  }
+
+  .phone-cta:hover {
+    background: #fff;
+  }
+
+  address {
+    display: grid;
+    gap: 18px;
+    margin-top: 44px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .row {
+    padding-top: 18px;
+    border-top: 1px solid #2e4c6b;
+  }
+
+  .label {
+    display: block;
+    color: #8fa6bc;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .value {
+    color: #fff;
+  }
+
+  .value a {
+    color: #fff;
+    border-bottom: 1px solid #5c7894;
+  }
+
+  .value a:hover {
+    border-color: #fff;
+  }
+
+  .office-card {
+    flex: 1 1 340px;
+    min-width: 260px;
+    background: var(--color-navy-deep);
+    border: 1px solid #2e4c6b;
+    border-radius: 10px;
+    padding: 36px;
+  }
+
+  .office-label {
+    margin: 0 0 20px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8fa6bc;
+  }
+
+  .office-address {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    line-height: 1.3;
+    color: #fff;
+  }
+
+  .office-note {
+    margin: 20px 0 0;
+    max-width: 40ch;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #c9d6e2;
+  }
+
+  .office-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .btn-light,
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 24px;
+    border-radius: 6px;
+    min-height: 48px;
+  }
+
+  .btn-light {
+    background: var(--color-bg);
+    color: var(--color-primary) !important;
+  }
+
+  .btn-light:hover {
+    background: #fff;
+  }
+
+  .btn-outline {
+    color: #fff !important;
+    border: 1px solid #45658a;
+  }
+
+  .btn-outline:hover {
+    border-color: #fff;
+    background: #1a3a5c;
+  }
+
+  .nip {
+    margin: 28px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid #2e4c6b;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #8fa6bc;
+  }
+</style>

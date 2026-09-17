@@ -1,0 +1,33 @@
+---
+import { business } from '../data/business';
+---
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Wycena nieruchomości Sanok · {business.name} · NIP {business.nip}</p>
+    <p>{business.street}, {business.postalCode} {business.city} · tel. {business.phone}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-navy-deep);
+    color: #8fa6bc;
+  }
+
+  .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 36px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .inner p {
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const grupy = [
+  {
+    label: 'Zawsze',
+    items: ['numer księgi wieczystej lub odpis KW', 'wypis z rejestru gruntów', 'dokument potwierdzający tytuł prawny'],
+  },
+  {
+    label: 'Działka',
+    items: ['wyrys z mapy ewidencyjnej', 'wypis z miejscowego planu zagospodarowania lub decyzja o warunkach zabudowy'],
+  },
+  {
+    label: 'Dom',
+    items: ['projekt lub inwentaryzacja budynku', 'pozwolenie na budowę, dziennik budowy', 'zawiadomienie o zakończeniu budowy'],
+  },
+  {
+    label: 'Mieszkanie',
+    items: ['akt notarialny lub zaświadczenie ze spółdzielni', 'rzut lokalu, powierzchnia użytkowa', 'umowa przedwstępna — przy wycenie do kredytu'],
+  },
+];
+---
+
+<section class="dokumenty-band">
+  <div class="dokumenty">
+    <div class="dokumenty-grid">
+      <SectionHeading
+        number="04"
+        title="Jakie dokumenty są potrzebne"
+        description="Poniżej typowy zestaw. Ostateczną listę ustalam przy pierwszym kontakcie — zależy od rodzaju nieruchomości i celu wyceny."
+      />
+      <div class="grupy">
+        {
+          grupy.map((grupa) => (
+            <div>
+              <h3>{grupa.label}</h3>
+              <ul>
+                {grupa.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dokumenty-band {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dokumenty {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .dokumenty-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .grupy {
+    flex: 1 1 420px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 40px;
+  }
+
+  .grupy h3 {
+    margin: 0 0 14px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .grupy ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+  }
+</style>

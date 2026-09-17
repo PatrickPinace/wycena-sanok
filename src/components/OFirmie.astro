@@ -1,0 +1,84 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { business } from '../data/business';
+---
+
+<section id="o-firmie" class="o-firmie">
+  <div class="grid">
+    <SectionHeading number="05" title="Rzeczoznawca majątkowy w Sanoku" />
+    <div class="content">
+      <p class="intro">
+        Firma świadczy kompleksowe usługi z zakresu wyceny nieruchomości od {business.foundedYear} r. Zasięg
+        działalności obejmuje teren Podkarpacia, a w szczególności miasto Sanok i okolice.
+      </p>
+      <div class="paragraphs">
+        <p>
+          Potrzeby naszych Klientów realizujemy dzięki bogatemu doświadczeniu, a także współpracy z licznymi
+          urzędami, starostwami i bankami. Znajomość lokalnego rynku — realnych cen transakcyjnych w Sanoku i
+          powiecie sanockim — odróżnia rzetelny operat od wyceny sporządzonej zza biurka.
+        </p>
+        <p>
+          Każda wycena wykonywana jest zgodnie z aktualnymi przepisami prawa oraz standardami zawodowymi
+          Polskiej Federacji Stowarzyszeń Rzeczoznawców Majątkowych. Systematyczne podnoszenie kwalifikacji
+          zawodowych jest gwarantem najwyższej jakości usług.
+        </p>
+      </div>
+      <p class="signature">
+        mgr inż. {business.name} · {business.title.toLowerCase()} · uprawnienia nr {business.licenseNumber}
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .o-firmie {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .content {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 42ch;
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+    line-height: 1.45;
+    color: var(--color-ink);
+    text-wrap: pretty;
+  }
+
+  .paragraphs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px 40px;
+    margin-top: 36px;
+  }
+
+  .paragraphs p {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .signature {
+    margin: 36px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border-soft);
+    font-size: 15px;
+    color: var(--color-text-muted);
+  }
+</style>

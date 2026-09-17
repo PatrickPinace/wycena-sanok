@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /mapa
+
+Sitemap: https://wycena-sanok.pl/sitemap-index.xml

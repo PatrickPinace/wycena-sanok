@@ -1,0 +1,100 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const faq = [
+  {
+    q: 'Ile kosztuje wycena nieruchomości?',
+    a: 'Cena jest ustalana indywidualnie i zależy od rodzaju oraz wielkości nieruchomości, nakładu pracy, terminu i kosztów urzędowych. Podaję ją przed rozpoczęciem pracy, po krótkiej rozmowie telefonicznej.',
+  },
+  {
+    q: 'Ile trwa sporządzenie operatu?',
+    a: 'Standardowo kilka dni roboczych od oględzin i skompletowania dokumentów. Dokładny termin potwierdzam przy przyjęciu zlecenia.',
+  },
+  {
+    q: 'Jakie dokumenty muszę przygotować?',
+    a: 'Zawsze numer księgi wieczystej i wypis z rejestru gruntów. Reszta zależy od rodzaju nieruchomości i celu wyceny — pełną listę podaję przy pierwszym kontakcie, a część dokumentów pozyskuję samodzielnie w urzędach.',
+  },
+  {
+    q: 'Czy operat jest akceptowany przez bank?',
+    a: 'Tak. Operat sporządzam zgodnie z obowiązującymi przepisami i standardami zawodowymi PFSRM. Przy zleceniu warto podać nazwę banku — część instytucji ma dodatkowe wymagania formalne co do formy opracowania.',
+  },
+  {
+    q: 'Czy wykonuje Pan wyceny poza Sanokiem?',
+    a: 'Tak, na terenie całego Podkarpacia. Poza Sanokiem i powiatem sanockim do ceny doliczany jest koszt dojazdu, który podaję z góry.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+---
+
+<section id="pytania" class="pytania">
+  <div class="grid">
+    <SectionHeading number="07" title="Najczęstsze pytania" />
+    <div class="lista">
+      {
+        faq.map((item) => (
+          <div class="item">
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+<style>
+  .pytania {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .lista {
+    flex: 1 1 420px;
+    min-width: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+
+  .item h3 {
+    margin: 0 0 10px;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .item p {
+    margin: 0;
+    max-width: 66ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+</style>

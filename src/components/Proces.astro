@@ -1,0 +1,100 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const kroki = [
+  {
+    title: 'Ustalam zakres i termin',
+    text: 'Rozmowa telefoniczna lub mail: rodzaj nieruchomości, cel wyceny, termin. Na tej podstawie podaję cenę i czas realizacji.',
+  },
+  {
+    title: 'Pomagam skompletować dokumenty',
+    text: 'Wskazuję, co jest potrzebne przy danym celu wyceny. Część dokumentów pozyskuję samodzielnie w urzędach.',
+  },
+  {
+    title: 'Przeprowadzam oględziny',
+    text: 'Wizja lokalna na miejscu: pomiary, stan techniczny, otoczenie, dokumentacja fotograficzna.',
+  },
+  {
+    title: 'Sporządzam operat szacunkowy',
+    text: 'Analiza rynku, wybór podejścia i metody, sporządzenie operatu. Przekazuję go w formie papierowej lub elektronicznej.',
+  },
+];
+---
+
+<section class="proces">
+  <div class="proces-grid">
+    <SectionHeading
+      number="03"
+      title="Jak wygląda wycena nieruchomości"
+      description="Standardowo od pierwszego telefonu do przekazania operatu mija kilka dni roboczych. Termin ustalam indywidualnie."
+    />
+    <ol class="kroki">
+      {
+        kroki.map((krok, i) => (
+          <li>
+            <span class="krok-nr">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{krok.title}</h3>
+              <p>{krok.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .proces {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 104px 32px;
+  }
+
+  .proces-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .kroki {
+    flex: 1 1 420px;
+    min-width: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .kroki li {
+    display: flex;
+    gap: 28px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+
+  .krok-nr {
+    flex: 0 0 auto;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    color: var(--color-primary);
+    width: 28px;
+  }
+
+  .kroki h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .kroki p {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-text);
+  }
+</style>

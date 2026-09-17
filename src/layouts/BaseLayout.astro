@@ -1,0 +1,135 @@
+---
+import { business, siteUrl } from '../data/business';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const { title, description, path = '/' } = Astro.props;
+const canonicalUrl = new URL(path, siteUrl).toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: `Wycena Nieruchomości Sanok — ${business.name}`,
+  '@id': siteUrl,
+  url: siteUrl,
+  telephone: business.phoneHref.replace('tel:', ''),
+  email: business.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.street,
+    addressLocality: business.city,
+    postalCode: business.postalCode,
+    addressRegion: business.region,
+    addressCountry: business.country,
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Podkarpacie',
+  },
+  founder: {
+    '@type': 'Person',
+    name: business.name,
+    jobTitle: business.title,
+  },
+  openingHours: 'Mo-Sa 08:00-20:00',
+  priceRange: '$$',
+};
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content={`Wycena Nieruchomości Sanok — ${business.name}`} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-bg: #fbfaf8;
+    --color-bg-alt: #f3f1ec;
+    --color-border: #e4e0d8;
+    --color-border-soft: #e8e4dc;
+    --color-ink: #1b1d1f;
+    --color-ink-soft: #2b3138;
+    --color-text: #4a5058;
+    --color-text-muted: #6b7178;
+    --color-primary: #16324f;
+    --color-primary-hover: #0f2439;
+    --color-navy-deep: #12283f;
+    --font-serif: 'Crimson Pro', Georgia, serif;
+    --font-sans: Archivo, system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  ::selection {
+    background: #d8e2ec;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 720px) {
+    body {
+      padding-bottom: 72px;
+    }
+  }
+</style>

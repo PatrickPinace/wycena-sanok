@@ -1,0 +1,63 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  items: string[];
+  alt?: boolean;
+}
+
+const { title, description, items, alt = false } = Astro.props;
+---
+
+<section class={alt ? 'list-band alt' : 'list-band'}>
+  <div class="list-inner">
+    <div class="list-grid">
+      <SectionHeading title={title} description={description} />
+      <ul class="items">
+        {items.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .list-band.alt {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .list-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 85px 32px;
+  }
+
+  .list-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .items {
+    flex: 1 1 420px;
+    min-width: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0 40px;
+  }
+
+  .items li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+    font-size: 17px;
+    letter-spacing: -0.005em;
+    color: var(--color-ink-soft);
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SimpleListSection from '../components/SimpleListSection.astro';
+import PropertyCta from '../components/PropertyCta.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+import { propertyPages, type PropertyPage } from '../data/propertyPages';
+import { siteUrl } from '../data/business';
+
+export function getStaticPaths() {
+  return propertyPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: PropertyPage;
+}
+
+const { page } = Astro.props;
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Strona główna', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: page.h1, item: `${siteUrl}/${page.slug}/` },
+  ],
+};
+---
+
+<BaseLayout title={page.metaTitle} description={page.metaDescription} path={`/${page.slug}/`}>
+  <Header isHomePage={false} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  <main>
+    <Hero
+      eyebrowParts={[page.eyebrow]}
+      title={page.h1}
+      lead={page.lead}
+      secondaryCtaHref="#zakres"
+      secondaryCtaLabel="Zakres wyceny"
+    />
+
+    <div id="zakres">
+      <SimpleListSection title={page.scopeTitle} description={page.scopeIntro} items={page.scopeItems} />
+    </div>
+
+    <SimpleListSection title={page.purposesTitle} items={page.purposes} alt />
+
+    <SimpleListSection title={page.documentsTitle} items={page.documents} />
+
+    <PropertyCta ctaText={page.ctaText} />
+  </main>
+  <Footer />
+  <MobileCallBar />
+</BaseLayout>

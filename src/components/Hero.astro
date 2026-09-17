@@ -1,23 +1,41 @@
 ---
 import { business } from '../data/business';
+
+interface Props {
+  eyebrowParts?: string[];
+  title?: string;
+  lead?: string;
+  secondaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+}
+
+const {
+  eyebrowParts = [`Uprawnienia zawodowe nr ${business.licenseNumber}`, `od ${business.foundedYear} roku`],
+  title = 'Wycena nieruchomości Sanok',
+  lead = 'Operaty szacunkowe i wyceny nieruchomości w Sanoku i na terenie Podkarpacia. Mieszkania, domy, działki, lokale i nieruchomości komercyjne.',
+  secondaryCtaHref = '#oferta',
+  secondaryCtaLabel = 'Zakres usług',
+} = Astro.props;
 ---
 
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-main">
       <p class="eyebrow">
-        <span>Uprawnienia zawodowe nr {business.licenseNumber}</span>
-        <span class="dot" aria-hidden="true"></span>
-        <span>od {business.foundedYear} roku</span>
+        {
+          eyebrowParts.map((part, i) => (
+            <>
+              <span>{part}</span>
+              {i < eyebrowParts.length - 1 && <span class="dot" aria-hidden="true" />}
+            </>
+          ))
+        }
       </p>
-      <h1>Wycena nieruchomości Sanok</h1>
-      <p class="lead">
-        Operaty szacunkowe i wyceny nieruchomości w Sanoku i na terenie Podkarpacia. Mieszkania, domy,
-        działki, lokale i nieruchomości komercyjne.
-      </p>
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
       <div class="cta-row">
         <a href={business.phoneHref} class="cta-primary">Zadzwoń: {business.phone}</a>
-        <a href="#oferta" class="cta-secondary">Zakres usług</a>
+        <a href={secondaryCtaHref} class="cta-secondary">{secondaryCtaLabel}</a>
       </div>
       <p class="note">Wyceny dla banków, sądów, urzędów, kancelarii notarialnych i klientów indywidualnych.</p>
     </div>
@@ -88,6 +106,7 @@ import { business } from '../data/business';
     background: currentColor;
     opacity: 0.5;
     flex: none;
+    display: inline-block;
   }
 
   h1 {

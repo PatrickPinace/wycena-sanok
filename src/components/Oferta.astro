@@ -2,14 +2,14 @@
 import SectionHeading from './SectionHeading.astro';
 
 const items = [
-  'Działki niezabudowane',
-  'Działki zabudowane budynkami mieszkalnymi',
-  'Lokale mieszkalne, także w budowie',
-  'Spółdzielcze własnościowe prawo do lokalu',
-  'Lokale użytkowe',
-  'Nieruchomości komercyjne',
-  'Garaże',
-  'Kamienice',
+  { label: 'Działki niezabudowane', href: '/wycena-dzialki-sanok/' },
+  { label: 'Działki zabudowane budynkami mieszkalnymi', href: '/wycena-domu-sanok/' },
+  { label: 'Lokale mieszkalne, także w budowie', href: '/wycena-mieszkania-sanok/' },
+  { label: 'Spółdzielcze własnościowe prawo do lokalu', href: '/wycena-mieszkania-sanok/' },
+  { label: 'Lokale użytkowe', href: '/wycena-lokalu-uzytkowego-sanok/' },
+  { label: 'Nieruchomości komercyjne', href: '/wycena-lokalu-uzytkowego-sanok/' },
+  { label: 'Garaże', href: '/wycena-lokalu-uzytkowego-sanok/' },
+  { label: 'Kamienice', href: '/wycena-lokalu-uzytkowego-sanok/' },
 ];
 ---
 
@@ -20,7 +20,18 @@ const items = [
       description="Szacuję wartość nieruchomości wszystkich podstawowych typów występujących na rynku sanockim."
     />
     <ul class="items">
-      {items.map((item) => <li>{item}</li>)}
+      {
+        items.map((item) => (
+          <li>
+            <a href={item.href}>
+              {item.label}
+              <span class="arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
@@ -51,8 +62,14 @@ const items = [
   }
 
   .items li {
-    padding: 18px 0;
     border-bottom: 1px solid var(--color-border-soft);
+  }
+
+  .items a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 0;
     font-size: 17px;
     letter-spacing: -0.005em;
     color: var(--color-ink-soft);
@@ -61,8 +78,21 @@ const items = [
       padding-left 0.15s ease;
   }
 
-  .items li:hover {
+  .items a:hover {
     color: var(--color-primary);
     padding-left: 6px;
+  }
+
+  .arrow {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .items a:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
   }
 </style>

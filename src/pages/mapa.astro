@@ -10,12 +10,12 @@ const mapSrc = `https://maps.google.com/maps?q=${query}&z=16&output=embed`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mapa — {business.street}, {business.city}</title>
+    <title>Mapa - {business.street}, {business.city}</title>
     <meta name="robots" content="noindex" />
   </head>
   <body>
     <iframe
-      title={`Mapa — ${business.street}, ${business.city}`}
+      title={`Mapa - ${business.street}, ${business.city}`}
       src={mapSrc}
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"

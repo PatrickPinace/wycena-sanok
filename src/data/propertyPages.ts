@@ -23,11 +23,11 @@ export const propertyPages: PropertyPage[] = [
     navLabel: 'Lokale mieszkalne, także w budowie',
     shortLabel: 'Wycena mieszkania',
     h1: 'Wycena mieszkania Sanok',
-    metaTitle: 'Wycena mieszkania Sanok — operat szacunkowy | Zbigniew Gilarski',
+    metaTitle: 'Wycena mieszkania Sanok - operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
-      'Wycena mieszkania w Sanoku i okolicy — operat szacunkowy do kredytu, sprzedaży, spadku lub podziału majątku. Rzeczoznawca majątkowy, uprawnienia nr 1376.',
+      'Wycena mieszkania w Sanoku i okolicy - operat szacunkowy do kredytu, sprzedaży, spadku lub podziału majątku. Rzeczoznawca majątkowy, uprawnienia nr 1376.',
     eyebrow: 'Lokale mieszkalne · spółdzielcze i odrębna własność',
-    lead: 'Wyceniam mieszkania w Sanoku i powiecie sanockim — zarówno z odrębną własnością, jak i spółdzielczym własnościowym prawem do lokalu, także lokale w budowie.',
+    lead: 'Wyceniam mieszkania w Sanoku i powiecie sanockim - zarówno z odrębną własnością, jak i spółdzielczym własnościowym prawem do lokalu, także lokale w budowie.',
     ctaText: 'wyceny mieszkania',
     scopeTitle: 'Co obejmuje wycena mieszkania',
     scopeIntro:
@@ -50,7 +50,7 @@ export const propertyPages: PropertyPage[] = [
       'Numer księgi wieczystej lub zaświadczenie ze spółdzielni',
       'Akt notarialny lub umowa deweloperska',
       'Rzut lokalu i metraż powierzchni użytkowej',
-      'Umowa przedwstępna — przy wycenie do kredytu',
+      'Umowa przedwstępna - przy wycenie do kredytu',
     ],
   },
   {
@@ -58,9 +58,9 @@ export const propertyPages: PropertyPage[] = [
     navLabel: 'Działki zabudowane budynkami mieszkalnymi',
     shortLabel: 'Wycena domu',
     h1: 'Wycena domu Sanok',
-    metaTitle: 'Wycena domu Sanok — operat szacunkowy | Zbigniew Gilarski',
+    metaTitle: 'Wycena domu Sanok - operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
-      'Potrzebujesz operatu szacunkowego domu w Sanoku? Rzeczoznawca majątkowy z uprawnieniami nr 1376 — wyceny do kredytu, sprzedaży i ubezpieczenia.',
+      'Potrzebujesz operatu szacunkowego domu w Sanoku? Rzeczoznawca majątkowy z uprawnieniami nr 1376 - wyceny do kredytu, sprzedaży i ubezpieczenia.',
     eyebrow: 'Domy jednorodzinne · działki zabudowane',
     lead: 'Wyceniam domy jednorodzinne oraz działki zabudowane budynkami mieszkalnymi na terenie Sanoka i powiatu sanockiego.',
     ctaText: 'wyceny domu',
@@ -93,11 +93,11 @@ export const propertyPages: PropertyPage[] = [
     navLabel: 'Działki niezabudowane',
     shortLabel: 'Wycena działki',
     h1: 'Wycena działki Sanok',
-    metaTitle: 'Wycena działki Sanok — operat szacunkowy | Zbigniew Gilarski',
+    metaTitle: 'Wycena działki Sanok - operat szacunkowy | Zbigniew Gilarski',
     metaDescription:
-      'Rzeczoznawca majątkowy (uprawnienia nr 1376) wycenia działki niezabudowane w Sanoku — operat do sprzedaży, kredytu lub opłaty planistycznej.',
+      'Rzeczoznawca majątkowy (uprawnienia nr 1376) wycenia działki niezabudowane w Sanoku - operat do sprzedaży, kredytu lub opłaty planistycznej.',
     eyebrow: 'Działki niezabudowane · budowlane i rolne',
-    lead: 'Wyceniam działki niezabudowane na terenie Sanoka i powiatu sanockiego — budowlane, rolne oraz z potencjałem inwestycyjnym.',
+    lead: 'Wyceniam działki niezabudowane na terenie Sanoka i powiatu sanockiego - budowlane, rolne oraz z potencjałem inwestycyjnym.',
     ctaText: 'wyceny działki',
     scopeTitle: 'Co obejmuje wycena działki',
     scopeIntro:

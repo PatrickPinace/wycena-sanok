@@ -14,7 +14,7 @@ export const business = {
   city: 'Sanok',
   region: 'Podkarpackie',
   country: 'PL',
-  hours: 'pon.–sob. 08:00–20:00',
+  hours: 'pon.-sob. 08:00-20:00',
   mapsDirectionsUrl:
     'https://www.google.com/maps/dir/?api=1&destination=ul.+Matejki+22%2C+38-500+Sanok',
 } as const;

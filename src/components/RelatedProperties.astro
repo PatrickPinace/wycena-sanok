@@ -61,7 +61,7 @@ const related = propertyPages.filter((page) => page.slug !== currentSlug);
 
   .links a {
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
     gap: 8px;
     padding: 10px 0;
     font-size: 17px;
@@ -75,15 +75,10 @@ const related = propertyPages.filter((page) => page.slug !== currentSlug);
   }
 
   .arrow {
-    opacity: 0;
-    transform: translateX(-4px);
-    transition:
-      opacity 0.15s ease,
-      transform 0.15s ease;
+    transition: transform 0.15s ease;
   }
 
   .links a:hover .arrow {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateX(3px);
   }
 </style>

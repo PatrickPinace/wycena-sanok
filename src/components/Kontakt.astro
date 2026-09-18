@@ -10,14 +10,14 @@ import { withBase } from '../lib/url';
         <span class="rule" aria-hidden="true"></span>
         <h2>Kontakt</h2>
         <p class="lead">
-          Najszybciej telefonicznie. Proszę przygotować rodzaj nieruchomości, adres i cel wyceny - na tej
-          podstawie od razu podam cenę i termin.
+          Najszybciej telefonicznie. Proszę przygotować rodzaj nieruchomości, adres i&nbsp;cel wyceny - na tej
+          podstawie od&nbsp;razu podam cenę i&nbsp;termin.
         </p>
         <a href={business.phoneHref} class="phone-cta">{business.phone}</a>
         <address>
           <div class="row">
             <span class="label">Rzeczoznawca majątkowy</span>
-            <span class="value">mgr inż. {business.name}, upr. nr {business.licenseNumber}</span>
+            <span class="value">mgr inż. {business.name}, upr. nr&nbsp;{business.licenseNumber}</span>
           </div>
           <div class="row">
             <span class="label">Telefon dodatkowy · e-mail</span>
@@ -27,7 +27,7 @@ import { withBase } from '../lib/url';
           </div>
           <div class="row">
             <span class="label">Godziny pracy</span>
-            <span class="value">poniedziałek - sobota, {business.hours.replace('pon.-sob. ', '')}</span>
+            <span class="value">poniedziałek&nbsp;- sobota, {business.hours.replace('pon.-sob. ', '')}</span>
           </div>
         </address>
       </div>
@@ -35,10 +35,10 @@ import { withBase } from '../lib/url';
       <div class="office-card">
         <p class="office-label">Biuro</p>
         <p class="office-address">{business.street}<br />{business.postalCode} {business.city}</p>
-        <p class="office-note">Spotkania po wcześniejszym telefonicznym umówieniu terminu.</p>
+        <p class="office-note">Spotkania po&nbsp;wcześniejszym telefonicznym umówieniu terminu.</p>
         <div class="office-actions">
           <a href={business.mapsDirectionsUrl} target="_blank" rel="noopener" class="btn-light">Wyznacz trasę</a>
-          <a href={withBase('/mapa/')} target="_blank" rel="noopener" class="btn-outline">Pokaż na mapie</a>
+          <a href={withBase('/mapa/')} target="_blank" rel="noopener" class="btn-outline">Pokaż na mapie</a>
         </div>
       </div>
     </div>

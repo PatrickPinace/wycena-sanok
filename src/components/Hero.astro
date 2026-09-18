@@ -10,9 +10,9 @@ interface Props {
 }
 
 const {
-  eyebrowParts = [`Uprawnienia zawodowe nr ${business.licenseNumber}`, `od ${business.foundedYear} roku`],
+  eyebrowParts = [`Uprawnienia zawodowe nr ${business.licenseNumber}`, `od ${business.foundedYear} roku`],
   title = 'Wycena nieruchomości Sanok',
-  lead = 'Operaty szacunkowe i wyceny nieruchomości w Sanoku i na terenie Podkarpacia. Mieszkania, domy, działki, lokale i nieruchomości komercyjne.',
+  lead = 'Operaty szacunkowe i wyceny nieruchomości w Sanoku i na terenie Podkarpacia. Mieszkania, domy, działki, lokale i nieruchomości komercyjne.',
   secondaryCtaHref = '#oferta',
   secondaryCtaLabel = 'Zakres usług',
 } = Astro.props;
@@ -37,7 +37,7 @@ const {
         <a href={business.phoneHref} class="cta-primary">Zadzwoń: {business.phone}</a>
         <a href={secondaryCtaHref} class="cta-secondary">{secondaryCtaLabel}</a>
       </div>
-      <p class="note">Wyceny dla banków, sądów, urzędów, kancelarii notarialnych i klientów indywidualnych.</p>
+      <p class="note">Wyceny dla banków, sądów, urzędów, kancelarii notarialnych i&nbsp;klientów indywidualnych.</p>
     </div>
 
     <aside class="hero-card">

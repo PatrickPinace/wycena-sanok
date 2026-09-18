@@ -4,23 +4,23 @@ import SectionHeading from './SectionHeading.astro';
 const faq = [
   {
     q: 'Ile kosztuje wycena nieruchomości?',
-    a: 'Cena jest ustalana indywidualnie i zależy od rodzaju oraz wielkości nieruchomości, nakładu pracy, terminu i kosztów urzędowych. Podaję ją przed rozpoczęciem pracy, po krótkiej rozmowie telefonicznej.',
+    a: 'Cena jest ustalana indywidualnie i zależy od rodzaju oraz wielkości nieruchomości, nakładu pracy, terminu i kosztów urzędowych. Podaję ją przed rozpoczęciem pracy, po krótkiej rozmowie telefonicznej.',
   },
   {
     q: 'Ile trwa sporządzenie operatu?',
-    a: 'Standardowo kilka dni roboczych od oględzin i skompletowania dokumentów. Dokładny termin potwierdzam przy przyjęciu zlecenia.',
+    a: 'Standardowo kilka dni roboczych od oględzin i skompletowania dokumentów. Dokładny termin potwierdzam przy przyjęciu zlecenia.',
   },
   {
     q: 'Jakie dokumenty muszę przygotować?',
-    a: 'Zawsze numer księgi wieczystej i wypis z rejestru gruntów. Reszta zależy od rodzaju nieruchomości i celu wyceny - pełną listę podaję przy pierwszym kontakcie, a część dokumentów pozyskuję samodzielnie w urzędach.',
+    a: 'Zawsze numer księgi wieczystej i wypis z rejestru gruntów. Reszta zależy od rodzaju nieruchomości i celu wyceny - pełną listę podaję przy pierwszym kontakcie, a część dokumentów pozyskuję samodzielnie w urzędach.',
   },
   {
-    q: 'Czy operat jest akceptowany przez bank?',
-    a: 'Operaty szacunkowe sporządzam zgodnie z obowiązującymi przepisami i zasadami wyceny. Przy zleceniu na potrzeby kredytu warto podać nazwę banku, ponieważ poszczególne instytucje mogą mieć dodatkowe wymagania formalne.',
+    q: 'Czy operat jest akceptowany przez bank?',
+    a: 'Operaty szacunkowe sporządzam zgodnie z obowiązującymi przepisami i zasadami wyceny. Przy zleceniu na potrzeby kredytu warto podać nazwę banku, ponieważ poszczególne instytucje mogą mieć dodatkowe wymagania formalne.',
   },
   {
     q: 'Czy wykonuje Pan wyceny poza Sanokiem?',
-    a: 'Tak, na terenie całego Podkarpacia. Poza Sanokiem i powiatem sanockim do ceny doliczany jest koszt dojazdu, który podaję z góry.',
+    a: 'Tak, na terenie całego Podkarpacia. Poza Sanokiem i powiatem sanockim do ceny doliczany jest koszt dojazdu, który podaję z góry.',
   },
 ];
 
@@ -29,10 +29,10 @@ const faqJsonLd = {
   '@type': 'FAQPage',
   mainEntity: faq.map((item) => ({
     '@type': 'Question',
-    name: item.q,
+    name: item.q.replace(new RegExp(String.fromCharCode(160), 'g'), ' '),
     acceptedAnswer: {
       '@type': 'Answer',
-      text: item.a,
+      text: item.a.replace(/ /g, ' '),
     },
   })),
 };

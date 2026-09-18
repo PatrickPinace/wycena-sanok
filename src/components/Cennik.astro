@@ -2,10 +2,10 @@
 import SectionHeading from './SectionHeading.astro';
 
 const czynniki = [
-  'Rodzaj, charakter i wielkość nieruchomości',
-  'Nakład pracy niezbędny do przeprowadzenia wyceny',
-  'Termin i warunki wykonania czynności szacunkowych',
-  'Koszty ponoszone przez rzeczoznawcę: opłaty urzędowe, dojazd',
+  'Rodzaj, charakter i wielkość nieruchomości',
+  'Nakład pracy niezbędny do przeprowadzenia wyceny',
+  'Termin i warunki wykonania czynności szacunkowych',
+  'Koszty ponoszone przez rzeczoznawcę: opłaty urzędowe, dojazd',
 ];
 ---
 
@@ -14,13 +14,13 @@ const czynniki = [
     <div class="grid">
       <SectionHeading title="Ile kosztuje wycena" />
       <div class="content">
-        <p class="intro">Koszt wyceny ustalam indywidualnie z każdym Klientem. Zależy od czterech czynników:</p>
+        <p class="intro">Koszt wyceny ustalam indywidualnie z&nbsp;każdym Klientem. Zależy od&nbsp;czterech czynników:</p>
         <div class="czynniki">
           {czynniki.map((czynnik) => <p>{czynnik}</p>)}
         </div>
         <p class="note">
-          W celu zapoznania się z konkretnymi kosztami wyceny danej nieruchomości proszę o kontakt telefoniczny
-          bądź mailowy. Cenę i termin podaję z góry, przed rozpoczęciem pracy.
+          W celu zapoznania się z&nbsp;konkretnymi kosztami wyceny danej nieruchomości proszę o&nbsp;kontakt telefoniczny
+          bądź mailowy. Cenę i&nbsp;termin podaję z&nbsp;góry, przed rozpoczęciem pracy.
         </p>
       </div>
     </div>

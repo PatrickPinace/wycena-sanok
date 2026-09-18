@@ -40,7 +40,6 @@ import { withBase } from '../lib/url';
           <a href={business.mapsDirectionsUrl} target="_blank" rel="noopener" class="btn-light">Wyznacz trasę</a>
           <a href={withBase('/mapa/')} target="_blank" rel="noopener" class="btn-outline">Pokaż na mapie</a>
         </div>
-        <p class="nip">NIP {business.nip}</p>
       </div>
     </div>
   </div>
@@ -227,15 +226,6 @@ import { withBase } from '../lib/url';
     border-color: #fff;
     background: #1a3a5c;
     transform: translateY(-1px);
-  }
-
-  .nip {
-    margin: 28px 0 0;
-    padding-top: 20px;
-    border-top: 1px solid #2e4c6b;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #8fa6bc;
   }
 
   @media (max-width: 640px) {
